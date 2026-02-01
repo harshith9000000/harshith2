@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine? ❤️</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(-45deg, #ffafcc, #ffc8dd, #cdb4db, #a2d2ff);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            color: #590d22;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.92);
+            padding: 3rem 4rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(89, 13, 34, 0.3);
+            max-width: 700px;
+            border: 8px solid #ff4d6d;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: floatHearts 100s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes floatHearts {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #a4133c;
+            text-shadow: 3px 3px 0px #ffccd5;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            color: #800f2f;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bear-container {
+            font-size: 8rem;
+            margin: 2rem 0;
+            animation: bounce 2s infinite alternate;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes bounce {
+            from {
+                transform: translateY(0px);
+            }
+
+            to {
+                transform: translateY(-20px);
+            }
+        }
+
+        .question {
+            font-size: 2.2rem;
+            margin: 2.5rem 0;
+            font-weight: bold;
+            color: #c9184a;
+            position: relative;
+            z-index: 1;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn {
+            padding: 20px 50px;
+            font-size: 1.8rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            min-width: 180px;
+        }
+
+        #yesBtn {
+            background: linear-gradient(to right, #ff4d6d, #ff8fa3);
+            color: white;
+        }
+
+        #yesBtn:hover {
+            background: linear-gradient(to right, #c9184a, #ff4d6d);
+            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(201, 24, 74, 0.4);
+        }
+
+        #noBtn {
+            background: linear-gradient(to right, #adb5bd, #6c757d);
+            color: white;
+            position: relative;
+            transition: left 0.1s, top 0.1s;
+        }
+
+        #celebration {
+            display: none;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .celebrate-text {
+            font-size: 4rem;
+            color: #ff4d6d;
+            animation: pulse 1s infinite;
+            margin-bottom: 2rem;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .message {
+            font-size: 1.8rem;
+            line-height: 1.6;
+            color: #800f2f;
+            margin-bottom: 2rem;
+        }
+
+        .hearts {
+            font-size: 2.5rem;
+            letter-spacing: 15px;
+            color: #ff4d6d;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Love You Kaaviya!💖</h1>
+
+        <div class="bear-container">
+            🧸
+        </div>
+
+        <p class="question">So... will you be my Valentine?</p>
+
+        <div class="buttons">
+            <button class="btn" id="yesBtn">YES! 🥰</button>
+            <button class="btn" id="noBtn">No 😢</button>
+        </div>
+
+        <!-- This section appears only after clicking YES -->
+        <div id="celebration">
+            <div class="celebrate-text">So Sweet thangoo!🎉❤️🎉</div>
+            <p class="message">
+                I don't need a perfect girl, perfect person <br>
+                I just need you, Kaaviya.<br>
+                Every smile, every fight, every calm moment - I wanna face<br>
+                Choose you. Always. 💕
+            </p>
+            <div class="hearts">💖 💗 💓 💞 💕</div>
+        </div>
+    </div>
+
+    <script>
+        // Get the buttons and celebration div
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const celebrationDiv = document.getElementById('celebration');
+        const question = document.querySelector('.question');
+
+        // Variables to track mouse position for extra evasion
+        let mouseX = 0;
+        let mouseY = 0;
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // 1. The Main "Prank": Make the "No" button run away on hover
+        noBtn.addEventListener('mouseover', () => {
+            // Get viewport and button dimensions
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const buttonWidth = noBtn.offsetWidth;
+            const buttonHeight = noBtn.offsetHeight;
+
+            // Calculate a random position, ensuring it stays fully on screen
+            const randomX = Math.max(10, Math.random() * (viewportWidth - buttonWidth - 20));
+            const randomY = Math.max(10, Math.random() * (viewportHeight - buttonHeight - 20));
+
+            // Apply the new position using absolute positioning within the viewport
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = `${randomX}px`;
+            noBtn.style.top = `${randomY}px`;
+
+            // Optional: Add a funny message that changes
+            const messages = ["Nope!", "Try again!", "Not so fast!", "Missed me!", "Too slow!", "Can't click this!"];
+            noBtn.textContent = messages[Math.floor(Math.random() * messages.length)];
+        });
+
+        // 2. Extra trick: If they manage to "chase" and click it, it still runs away
+        noBtn.addEventListener('click', (event) => {
+            // Immediately move it again on click attempt
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const buttonWidth = noBtn.offsetWidth;
+            const buttonHeight = noBtn.offsetHeight;
+
+            // Place it opposite to the mouse cursor for extra fun
+            const escapeX = mouseX > viewportWidth / 2 ? 50 : viewportWidth - buttonWidth - 50;
+            const escapeY = mouseY > viewportHeight / 2 ? 50 : viewportHeight - buttonHeight - 50;
+
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = `${escapeX}px`;
+            noBtn.style.top = `${escapeY}px`;
+            noBtn.textContent = "Nice try! 😜";
+            noBtn.textContent = "Bold 😜";
+            noBtn.textContent = "Nice Cutie! 😜";
+            noBtn.textContent = "ennadi 😜";
+
+
+            event.preventDefault();
+        });
+
+        // 3. The Happy Path: When "YES" is clicked
+        yesBtn.addEventListener('click', () => {
+            // Hide the question and the original buttons
+            question.style.display = 'none';
+            document.querySelector('.buttons').style.display = 'none';
+
+            // Show the celebration message
+            celebrationDiv.style.display = 'block';
+
+            // Create a burst of floating hearts
+            for (let i = 0; i < 50; i++) {
+                createFloatingHeart();
+            }
+
+            // Change the background animation
+            document.body.style.animation = "gradientBG 5s ease infinite";
+        });
+
+        // Function to create floating hearts animation
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '💖';
+            heart.style.position = 'fixed';
+            heart.style.fontSize = Math.random() * 30 + 20 + 'px';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '100vh';
+            heart.style.opacity = Math.random() + 0.5;
+            heart.style.zIndex = 9999;
+            document.body.appendChild(heart);
+
+            // Animate the heart floating up and fading out
+            const animation = heart.animate([
+                { transform: 'translateY(0) scale(1)', opacity: 1 },
+                { transform: `translateY(-${Math.random() * 80 + 20}vh) scale(${Math.random() + 0.5})`, opacity: 0 }
+            ], {
+                duration: Math.random() * 3000 + 2000,
+                easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
+            });
+
+            // Remove the heart element after animation completes
+            animation.onfinish = () => heart.remove();
+        }
+    </script>
+</body>
+
+</html>
